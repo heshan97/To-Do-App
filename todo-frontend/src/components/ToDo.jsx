@@ -1,48 +1,10 @@
-// import axios from "axios";
-// import React from "react";
-// import { AiFillEdit } from "react-icons/ai";
-// import { RxCross1 } from "react-icons/rx";
-// import { baseURL } from "../utils/constant";
 
-// const ToDo = ({ text,description, id, setUpdateUI, setShowPopup, setPopupContent }) => {
-//   const deleteTodo = () => {
-//     axios.delete(`${baseURL}/delete/${id}`).then((res) => {
-//       console.log(res.data);
-//       setUpdateUI((prevState) => !prevState);
-//     });
-//   };
-
-//   const updateToDo = () => {
-//     setPopupContent({ text, id });
-//     setShowPopup(true);
-//   };
-
-//   return (
-//     <div className="toDo">
-//        <h3>{text}</h3>
-//       <p>{description}</p>
-
-//       <div className="icons">
-//         <AiFillEdit className="icon" onClick={updateToDo} />
-//         <RxCross1 className="icon" onClick={deleteTodo} />
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ToDo;
-// ToDo.js
-// ToDo.js
-// ToDo.js
 import axios from "axios";
 import React from "react";
-import { AiFillEdit } from "react-icons/ai";
-import { RxCross1 } from "react-icons/rx";
 import { baseURL } from "../utils/constant";
 import {
   EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
+  DeleteOutlined,
 } from '@ant-design/icons';
 import { Avatar, Card } from 'antd';
 const { Meta } = Card;
@@ -82,18 +44,7 @@ const ToDo = ({ text, description, completed, id, setUpdateUI, setShowPopup, set
 
   return (
     
-    // <div className={`toDo ${completed ? "completed" : ""}`}>
-    //   <div>
-    //     <strong>{text}</strong>
-    //     {description && <p>{description}</p>}
-    //   </div>
-    //   <div className="icons">
-    //     <div className="checkbox">fdf</div>
-    //     {/* <button onClick={toggleComplete}>{completed ? "Undo" : "Complete"}</button> */}
-    //     <AiFillEdit className="icon" onClick={updateToDo} />
-    //     <RxCross1 className="icon" onClick={deleteTodo} />
-    //   </div>
-    // </div>
+   
     <div className={`toDo `}>
         {/* <div onClick={toggleComplete}>{completed ? "Undo" : "Complete"} */}
     
@@ -103,12 +54,13 @@ const ToDo = ({ text, description, completed, id, setUpdateUI, setShowPopup, set
       {/* </div> */}
       <Card
     style={{
-      width: 500,
+      width: 800,
     }}
     actions={[
-      <SettingOutlined key="setting" onClick={deleteTodo} />,
       <EditOutlined key="edit" onClick={updateToDo} />,
-      // <EllipsisOutlined key="ellipsis" />,
+      <DeleteOutlined key="setting" onClick={deleteTodo} />,
+      
+      
     ]}
   >
     <Meta title={text} description={description} />
